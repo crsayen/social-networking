@@ -29,4 +29,10 @@ describe('User', () => {
       expect(otherUser.followers).toContain(user)
     })
   })
+  describe('posts', () => {
+    user.publish('any content')
+    it('can publish a post', () => {
+      expect(user.timeline.posts[0].content).toBe('any content')
+    })
+  })
 })

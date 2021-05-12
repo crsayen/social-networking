@@ -1,4 +1,5 @@
 import Timeline from './Timeline'
+import Post from './Post'
 
 export default class User {
   name: string
@@ -19,5 +20,10 @@ export default class User {
 
   addFollower(user: User) {
     this.followers.add(user)
+  }
+
+  publish(content: string) {
+    const post = new Post(this, content)
+    this.timeline.add(post)
   }
 }

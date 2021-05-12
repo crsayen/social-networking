@@ -1,12 +1,31 @@
 import User from './User'
+import secondsToElapsed from './util/secondsToElapsed'
 
 export default class Post {
-  author: User
+  _author: User
   timestamp: Date
-  content: string
+  _content: string
   constructor(author: User, content: string) {
-    this.author = author
+    this._author = author
     this.timestamp = new Date()
-    this.content = content
+    this._content = content
+  }
+
+  get author(): User {
+    return this._author
+  }
+
+  get content(): string {
+    return this._content
+  }
+
+  get posted(): string {
+    const msecs = Date.now() - this.timestamp.getTime()
+    const secs = Math.ceil(msecs / 1000)
+    return secondsToElapsed(secs)
+  }
+
+  toString(): string {
+    return `${this.author.name} - ${this.content} (${this.posted})`
   }
 }

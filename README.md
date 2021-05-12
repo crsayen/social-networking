@@ -1,6 +1,6 @@
 # **Kata**  -- Social Networking
 
-This code implements the core domain login of a social networking app as described in this [kata](kata.md).
+This code implements the core domain logic of a social networking app as described in this [kata](kata.md).
 It models the users, their timelines, and their relationship to other users. Currently there is no user interface, data persistance, or API. Rather, the code was written to act as a foundation for those features. 
 
 ## Installation
